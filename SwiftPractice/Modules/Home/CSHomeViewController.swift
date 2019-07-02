@@ -1,0 +1,33 @@
+//
+//  CSHomeViewController.swift
+//  SwiftPractice
+//
+//  Created by hanxing on 2019/7/1.
+//  Copyright © 2019 hanxing. All rights reserved.
+//
+
+import UIKit
+
+class CSHomeViewController: CSBaseViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+  
+    
+    }
+
+}
+
+extension CSHomeViewController {
+    
+    override func initTabBarItem() {
+
+        let tabbarItem = UITabBarItem(title: "首页", image: UIImage(named: "xmHomeNormalTabBarItemIcon")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "xmHomeSelectedTabBarItemIcon")?.withRenderingMode(.alwaysOriginal))
+        tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.gray, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 9)], for: .normal)
+        tabbarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.green, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 11)], for: .selected)
+        self.tabBarItem = tabbarItem
+
+    }
+
+}
+
