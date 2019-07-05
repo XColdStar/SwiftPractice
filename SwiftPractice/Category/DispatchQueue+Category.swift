@@ -9,21 +9,23 @@
 import Foundation
 
 extension DispatchQueue {
-    private static var onceToken = ""
-    class func once(token : String = "onceToken" , callback : () -> ())  {
+    
+    static var onceTokens = [String]()
+    public class func once(token : String , callback : () -> ())  {
         
         objc_sync_enter(self)
         
-        do {
+        defer {
             objc_sync_exit(self)
         }
-
-        if onceToken.contains(token) {
+    
+        if onceTokens.contains(token) {
             return
         }
         
-        onceToken.append(token)
+        onceTokens.append(token)
         callback()
     }
+    
 }
 

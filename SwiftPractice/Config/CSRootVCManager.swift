@@ -14,21 +14,22 @@ class CSRootVCManager: NSObject {
     
     class func defaultRootVC() -> (UITabBarController) {
         
-        DispatchQueue.once() {
-
+        let onceToken = NSUUID().uuidString
+        print("defaultRootVCToken：\(onceToken)")
+        
+        DispatchQueue.once(token: onceToken) {
             rootVC = UITabBarController()
             let homeVC = CSHomeViewController()
             homeVC.title = "首页"
             let homeNav = CSBaseNavigationController(rootViewController: homeVC)
             homeNav.tabBarItem = homeVC.tabBarItem
-
+            
             let mineVC = CSMineViewController()
             mineVC.title = "我"
             let mineNav = CSBaseNavigationController(rootViewController: mineVC)
             mineNav.tabBarItem = mineVC.tabBarItem
-
+            
             rootVC!.viewControllers = [homeNav,mineNav]
-
         }
 
         return rootVC!

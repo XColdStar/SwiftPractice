@@ -14,6 +14,7 @@
 		A35D0EAD22C3068200791066 /* SwiftPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D0EAC22C3068200791066 /* SwiftPracticeTests.swift */; };
 		A35D0EB822C3068200791066 /* SwiftPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D0EB722C3068200791066 /* SwiftPracticeUITests.swift */; };
 		A35D0EC722C30EF500791066 /* CSBaseHTTPRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D0EC622C30EF500791066 /* CSBaseHTTPRequestManager.swift */; };
+		A381092E22CB41C300FDD65E /* UIDevice+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A381092D22CB41C300FDD65E /* UIDevice+Category.swift */; };
 		A38C506522C3222300BF2839 /* CSBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C506422C3222300BF2839 /* CSBaseModel.swift */; };
 		A38C506722C3224300BF2839 /* CSUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C506622C3224300BF2839 /* CSUserModel.swift */; };
 		A38C506A22C322B800BF2839 /* CSRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C506922C322B800BF2839 /* CSRequestManager.swift */; };
@@ -305,6 +306,7 @@
 		A35D0EB722C3068200791066 /* SwiftPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPracticeUITests.swift; sourceTree = "<group>"; };
 		A35D0EB922C3068200791066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A35D0EC622C30EF500791066 /* CSBaseHTTPRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSBaseHTTPRequestManager.swift; sourceTree = "<group>"; };
+		A381092D22CB41C300FDD65E /* UIDevice+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Category.swift"; sourceTree = "<group>"; };
 		A38C506422C3222300BF2839 /* CSBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSBaseModel.swift; sourceTree = "<group>"; };
 		A38C506622C3224300BF2839 /* CSUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSUserModel.swift; sourceTree = "<group>"; };
 		A38C506922C322B800BF2839 /* CSRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRequestManager.swift; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 			children = (
 				A3CEFEB222C9E8FA00BC3085 /* DispatchQueue+Category.swift */,
 				A3CE011422CAEEED00BC3085 /* UIColor+Category.swift */,
+				A381092D22CB41C300FDD65E /* UIDevice+Category.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1646,6 +1649,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38C506722C3224300BF2839 /* CSUserModel.swift in Sources */,
+				A381092E22CB41C300FDD65E /* UIDevice+Category.swift in Sources */,
 				A3CE011322CAEE5D00BC3085 /* CSStyleManager.swift in Sources */,
 				A3CEFE5F22C9E57400BC3085 /* CSBaseViewController.swift in Sources */,
 				A3CEFEB322C9E8FA00BC3085 /* DispatchQueue+Category.swift in Sources */,

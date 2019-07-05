@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = CSRootVCManager.defaultRootVC()
+//        self.window?.rootViewController = CSRootVCManager.defaultRootVC()
+        self.window?.rootViewController = CSLoginViewController()
         return true
     }
 

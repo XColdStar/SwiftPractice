@@ -14,6 +14,7 @@ let kTitleColor = "#333333"
 let kTextColor = "#666666"
 let kBgColor   = "#F5F5F5"
 let kLineColor = "#D8D8D8"
+let kRedColor = "#E1514F"
 
 class CSStyleManager: NSObject {
 
@@ -24,80 +25,83 @@ class CSStyleManager: NSObject {
 extension CSStyleManager {
     
     static var mColor : UIColor? = nil
+    static let mainColorOnceToken = NSUUID().uuidString
     static func mainColor() -> (UIColor) {
-        DispatchQueue.once() {
+        print("mainColorOnceToken：\(mainColorOnceToken)")
+        DispatchQueue.once(token: mainColorOnceToken) {
             mColor = UIColor.hexColor(hexString: kMainColor)
         }
         return mColor ?? UIColor.black
     }
     
     static var tColor : UIColor? = nil
+    static let titleColorOnceToken = NSUUID().uuidString
     static func titleColor() -> (UIColor) {
-        DispatchQueue.once() {
+        print("titleColorOnceToken：\(titleColorOnceToken)")
+        DispatchQueue.once(token: titleColorOnceToken) {
             tColor = UIColor.hexColor(hexString: kTitleColor)
         }
         return tColor ?? UIColor.black
     }
     
     static var txtColor : UIColor? = nil
+    static let textColorOnceToken = NSUUID().uuidString
     static func textColor() -> (UIColor) {
-        DispatchQueue.once() {
+        print("textColorOnceToken：\(textColorOnceToken)")
+        DispatchQueue.once(token: textColorOnceToken) {
             txtColor = UIColor.hexColor(hexString: kTextColor)
         }
         return txtColor ?? UIColor.black
     }
     
     static var bgColor : UIColor? = nil
+    static let backgroundColorOnceToken = NSUUID().uuidString
     static func backgroundColor() -> (UIColor) {
-        DispatchQueue.once() {
+        print("backgroundColorOnceToken：\(backgroundColorOnceToken)")
+        DispatchQueue.once(token: backgroundColorOnceToken) {
             bgColor = UIColor.hexColor(hexString: kBgColor)
         }
         return bgColor ?? UIColor.white
     }
     
     static var lColor : UIColor? = nil
+    static let lineColorOnceToken = NSUUID().uuidString
     static func lineColor() -> (UIColor) {
-        DispatchQueue.once() {
+        print("lineColorOnceToken：\(lineColorOnceToken)")
+        DispatchQueue.once(token: lineColorOnceToken) {
             lColor = UIColor.hexColor(hexString: kLineColor)
         }
         return lColor ?? UIColor.gray
     }
     
+    static var rColor : UIColor? = nil
+    static let redColorOnceToken = NSUUID().uuidString
+    static func redColor() -> (UIColor) {
+        print("redColorOnceToken：\(redColorOnceToken)")
+        DispatchQueue.once(token: redColorOnceToken) {
+            rColor = UIColor.hexColor(hexString: kRedColor)
+        }
+        return rColor ?? UIColor.gray
+    }
 }
 
 //Mark：设置字体
 extension CSStyleManager {
     
-    static var rFont : UIFont? = nil
-    static func regularFont(size : CGFloat) -> (UIFont) {
-        DispatchQueue.once() {
-            rFont = UIFont.systemFont(ofSize: size)
-        }
-        return rFont!
+    static func regularFont(_ size : CGFloat) -> (UIFont) {
+        return UIFont.systemFont(ofSize: size)
     }
-    
-    static var lFont : UIFont? = nil
+
     static func lightFont(size : CGFloat) -> (UIFont) {
-        DispatchQueue.once() {
-            lFont = UIFont.systemFont(ofSize: size, weight: .light)
-        }
-        return lFont!
+        return UIFont.systemFont(ofSize: size, weight: .light)
     }
-    
-    static var mFont : UIFont? = nil
+
     static func mediumFont(size : CGFloat) -> (UIFont) {
-        DispatchQueue.once() {
-            mFont = UIFont.systemFont(ofSize: size, weight: .medium)
-        }
-        return mFont!
+        return UIFont.systemFont(ofSize: size, weight: .medium)
     }
     
-    static var bFont : UIFont? = nil
     static func boldFont(size : CGFloat) -> (UIFont) {
-        DispatchQueue.once() {
-            bFont = UIFont.systemFont(ofSize: size, weight: .bold)
-        }
-        return bFont!
+        return UIFont.systemFont(ofSize: size, weight: .bold)
     }
     
 }
