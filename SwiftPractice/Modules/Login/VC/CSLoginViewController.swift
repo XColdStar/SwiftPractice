@@ -26,7 +26,7 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var fastLoginLabel : UILabel = {
         let label = UILabel()
-        label.textColor = CSStyleManager.titleColor()
+        label.textColor = CSStyleManager.share().titleColor
         label.textAlignment = NSTextAlignment.left
         label.font = CSStyleManager.regularFont(18)
         label.text = "快速登录"
@@ -35,7 +35,7 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var line : UIView = {
         let line = UIView()
-        line.backgroundColor = CSStyleManager.mainColor()
+        line.backgroundColor = CSStyleManager.share().mainColor
         line.layer.cornerRadius = 1
         return line
     }()
@@ -46,8 +46,8 @@ class CSLoginViewController: CSBaseViewController {
         tf.placeholder = "请输入手机号"
         tf.keyboardType = UIKeyboardType.numberPad
         tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        let line = UIView(frame: CGRect(x: 0, y: 65, width: CGFloat(UIDevice.width()-50), height: 1))
-        line.backgroundColor = CSStyleManager.lineColor()
+        let line = UIView(frame: CGRect(x: 0, y: 65, width: CGFloat(UIDevice.width-50), height: 1))
+        line.backgroundColor = CSStyleManager.share().lineColor
         tf.addSubview(line)
         return tf
     }()
@@ -56,10 +56,10 @@ class CSLoginViewController: CSBaseViewController {
         let tf = UITextField()
         tf.textAlignment = NSTextAlignment.left
         tf.placeholder = "请输入验证码"
-        tf.textColor = CSStyleManager.textColor()
+        tf.textColor = CSStyleManager.share().textColor
         tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        let line = UIView(frame: CGRect(x: 0, y: 65, width: CGFloat(UIDevice.width()-50), height: 1))
-        line.backgroundColor = CSStyleManager.lineColor()
+        let line = UIView(frame: CGRect(x: 0, y: 65, width: CGFloat(UIDevice.width-50), height: 1))
+        line.backgroundColor = CSStyleManager.share().lineColor
         tf.addSubview(line)
         tf.rightView = self.sendCodeBtn
         return tf
@@ -67,7 +67,7 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var sendCodeBtn : UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 105, height: 30))
-        button.backgroundColor = CSStyleManager.mainColor()
+        button.backgroundColor = CSStyleManager.share().mainColor
         button.setTitle("发送验证码", for: .normal)
         button.titleLabel?.font = CSStyleManager.regularFont(15)
         button.setTitleColor(UIColor.white, for: .normal)
@@ -87,7 +87,7 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var iAgreeLabel : UILabel = {
         let label = UILabel()
-        label.textColor = CSStyleManager.textColor()
+        label.textColor = CSStyleManager.share().textColor
         label.textAlignment = NSTextAlignment.left
         label.font = CSStyleManager.regularFont(14)
         label.text = "我已阅读并同意"
@@ -96,12 +96,12 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var agreeLabel : UILabel = {
         let label = UILabel()
-        label.textColor = CSStyleManager.redColor()
+        label.textColor = CSStyleManager.share().redColor
         label.textAlignment = NSTextAlignment.center
         label.font = CSStyleManager.regularFont(12)
         label.text = "《修正健康用户协议》"
         label.isUserInteractionEnabled = true
-        let attribtDic : Dictionary? = [kCTUnderlineStyleAttributeName : NSUnderlineStyle.single , kCTForegroundColorAttributeName : CSStyleManager.mainColor()]
+        let attribtDic : Dictionary? = [kCTUnderlineStyleAttributeName : NSUnderlineStyle.single , kCTForegroundColorAttributeName : CSStyleManager.share().mainColor]
         let attribtString : NSMutableAttributedString? = NSMutableAttributedString(string: label.text ?? "《修正健康用户协议》", attributes: attribtDic! as [NSAttributedString.Key : Any])
         label.attributedText = attribtString
         let tap = UITapGestureRecognizer(target: self, action: Selector(("clickedAgree")))
@@ -111,7 +111,7 @@ class CSLoginViewController: CSBaseViewController {
     
     lazy var loginBtn : UIButton = {
         let button = UIButton()
-        button.backgroundColor = CSStyleManager.mainColor()
+        button.backgroundColor = CSStyleManager.share().mainColor
         button.setTitle("登录", for: .normal)
         button.titleLabel?.font = CSStyleManager.regularFont(19)
         button.setTitleColor(UIColor.white, for: .normal)
