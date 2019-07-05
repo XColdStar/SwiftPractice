@@ -10,10 +10,10 @@
 import UIKit
 
 let kMainColor = "#00910E"
-let kTitleColor = "#333333"
+let kTitleColor = "#000000"
 let kTextColor = "#666666"
 let kF5Color   = "#F5F5F5"
-let kLineColor = "#D8D8D8"
+let kD8Color = "#D8D8D8"
 let kRedColor = "#E1514F"
 
 class CSStyleManager: NSObject {
@@ -44,8 +44,8 @@ class CSStyleManager: NSObject {
         return UIColor.hexColor(hexString: kF5Color)
     }()
     
-    lazy var lineColor: UIColor = {
-        return UIColor.hexColor(hexString: kLineColor)
+    lazy var colorD8: UIColor = {
+        return UIColor.hexColor(hexString: kD8Color)
     }()
     
     lazy var redColor: UIColor = {
