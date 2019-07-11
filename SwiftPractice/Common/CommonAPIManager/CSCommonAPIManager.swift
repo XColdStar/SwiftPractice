@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import HandyJSON
 
 class CSCommonAPIManager: NSObject {
 
+    static let kSendCodeApi  = "/api/sendcode4loginJson"
     static let kLoginApi = "/api/login"
     
+    
+    //发送验证码
+    class func SendCode(params : Dictionary<String, Any>, modelClass: CSBaseModelProtocol.Type? ,finishCallback :  @escaping (Bool , Optional<Any>, String) -> ()) {
+        CSRequestManager.POSTRequest(url: kSendCodeApi, params: params, modelClass: modelClass, finishCallback: finishCallback)
+    }
+    
     //登录
-    class func csLogin(params : NSDictionary , modelClass: AnyClass ,finishCallback :  @escaping (Bool , Any) -> ()) {
+    class func Login(params : Dictionary<String, Any> , modelClass:  CSBaseModelProtocol.Type? ,finishCallback :  @escaping (Bool , Optional<Any>, String) -> ()) {
         CSRequestManager.POSTRequest(url: kLoginApi, params: params, modelClass: modelClass, finishCallback: finishCallback)
     }
+    
     
 }

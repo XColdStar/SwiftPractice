@@ -16,7 +16,7 @@ import Foundation
  */
 let kAppEnvironment = 0
 
-let kOnlineHost = "http://140.210.7.220:7505/"
-let kTestHost    = "http://140.210.7.220:7505/"
-let kPreHost     = "http://140.210.7.220:7505/"
+let kOnlineHost = "http://140.210.7.220:7503"
+let kTestHost    = "http://140.210.7.220:7503"
+let kPreHost     = "http://140.210.7.220:7505"
 

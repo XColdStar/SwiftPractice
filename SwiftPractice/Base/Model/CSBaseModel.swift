@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import HandyJSON
 
-class CSBaseModel: NSObject {
-
+class CSBaseModel: HandyJSON {
+    
+    required init() {
+        
+    }
+    
 }
+
+protocol CSBaseModelProtocol {
+    static func jsonToModel(json : String) -> HandyJSON?
+}
+

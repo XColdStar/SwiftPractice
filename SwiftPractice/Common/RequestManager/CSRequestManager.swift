@@ -7,27 +7,81 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class CSRequestManager: CSBaseHTTPRequestManager {
+    
+}
 
-    class func GETRequest(url : String, params : NSDictionary, modelClass : AnyClass, finishCallback :  @escaping (Bool , Any) -> () ) {
+//MARK: ### GET ###
+extension CSRequestManager {
+    
+    class func GETRequest(url : String, params : Dictionary<String, Any>, modelClass: CSBaseModelProtocol.Type? , finishCallback :  @escaping (Bool , Optional<Any> , String) -> () ) {
         let fullUrl = _RequestFullApi(api: url)
-        _GETRequest(url: fullUrl, params: params) { (isSuccess, result) in
-            finishCallback(isSuccess, result)
+        _GETRequest(url: fullUrl, params: params) { (isSuccess, result, msg)  in
+            
+            if isSuccess {
+                
+                let jsonData = result as! JSON
+                guard modelClass != nil else {
+                    finishCallback(true, jsonData, msg)
+                    return
+                }
+                
+                if let jsonString = jsonData["data"].rawString() {
+                    let model = modelClass!.jsonToModel(json: jsonString)
+                    finishCallback(true, model, msg)
+                } else {
+                    finishCallback(false, jsonData, msg)
+                }
+                
+            } else {
+                finishCallback(false, result, msg)
+            }
+            
         }
     }
     
-    class func POSTRequest(url : String, params : NSDictionary, modelClass : AnyClass, finishCallback :  @escaping (Bool , Any) -> () ) {
-         let fullUrl = _RequestFullApi(api: url)
-        _POSTRequest(url: fullUrl, params: params) { (isSuccess, result) in
-            finishCallback(isSuccess, result)
+}
+
+//MARK: ### POST ###
+extension CSRequestManager {
+    
+    class func POSTRequest(url : String, params : Dictionary<String, Any>,  modelClass: CSBaseModelProtocol.Type? , finishCallback :  @escaping (Bool , Optional<Any>, String) -> () ) {
+        let fullUrl = _RequestFullApi(api: url)
+        _POSTRequest(url: fullUrl, params: params) { (isSuccess, result, msg) in
+            
+            if isSuccess {
+                
+                let jsonData = result as! JSON
+                guard modelClass != nil else {
+                    finishCallback(true, jsonData, msg)
+                    return
+                }
+                
+                if let jsonString = jsonData["data"].rawString() {
+                    let model = modelClass!.jsonToModel(json: jsonString)
+                    finishCallback(true, model, msg)
+                } else {
+                    finishCallback(false, jsonData, msg)
+                }
+                
+        
+            } else {
+                finishCallback(false, result, msg)
+            }
+            
         }
     }
     
-    class func _RequestFullApi(api : String ) -> (String) {
+}
+
+//MARK: ### Get完整URL ###
+extension CSRequestManager {
+    
+     fileprivate class func _RequestFullApi(api : String ) -> (String) {
         
         var host : String? = nil
-        
         switch kAppEnvironment {
         case 1:
             host = kTestHost
@@ -36,7 +90,8 @@ class CSRequestManager: CSBaseHTTPRequestManager {
         default:
             host = kOnlineHost
         }
-        
         return (host ?? kOnlineHost) + api
+        
     }
+    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import HandyJSON
 
 class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
     
@@ -124,6 +125,11 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
     fileprivate var timer : Timer? = nil
     fileprivate var countdownTime = 60
     
+    lazy var manager: CSLoginManager = {
+        let m = CSLoginManager()
+        return m
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configUI()
@@ -170,6 +176,16 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
         RunLoop.main.add(timer!, forMode: RunLoop.Mode.common)
         self.startCountdown()
         print("发送验证码")
+        var params = [String : Any]()
+        params["mobile"] = self.phoneTextfield.text
+        self.manager.sendCode(params: params) { (isSuccess, result, msg) in
+            if isSuccess {
+                print("获取验证码成功")
+            } else {
+                print(msg)
+            }
+        }
+        
     }
     
     fileprivate func startCountdown() -> () {
@@ -204,8 +220,22 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
     
     fileprivate func login() {
         print("登录")
-        
-        
+        var params = [String : Any]()
+        params["mobile"] = self.phoneTextfield.text
+        params["code"] = self.codeTextfield.text
+        self.manager.login(params: params) { (isSuccess, result, msg) in
+            
+            if isSuccess
+            {
+                let model = result as! CSUserInfoModel
+                CSUser.updateUserInfo(userInfo: model)
+            }
+            else
+            {
+                print("\(msg)---登录失败！")
+            }
+            
+        }
     }
     
     

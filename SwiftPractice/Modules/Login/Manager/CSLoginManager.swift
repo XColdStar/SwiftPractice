@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import HandyJSON
 
 class CSLoginManager: NSObject {
 
-    func login(params : NSDictionary , finishCallback : @escaping (Any) -> ()) {
-       
-        CSCommonAPIManager.csLogin(params: params , modelClass: NSDictionary.self) { (isSuccess, result) in
-            
+    
+    func sendCode(params : Dictionary<String, Any>, finishCallback : @escaping (Bool , Optional<Any>, String) -> ()) {
+        
+        CSCommonAPIManager.SendCode(params: params , modelClass: nil) { (isSuccess, result, msg) in
+            finishCallback(isSuccess,result,msg)
         }
         
     }
+    
+    func login(params : Dictionary<String, Any> , finishCallback : @escaping (Bool , Optional<Any>, String) -> ()) {
+        CSCommonAPIManager.Login(params: params , modelClass: CSUserInfoModel.self) { (isSuccess, result, msg) in
+            finishCallback(isSuccess,result,msg)
+        }
+        
+    }
+    
     
 }

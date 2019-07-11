@@ -5,6 +5,7 @@ target 'SwiftPractice' do
 
 pod 'Alamofire'  
 pod 'SwiftyJSON'
+pod 'HandyJSON'
 pod 'SnapKit'
 
 end  

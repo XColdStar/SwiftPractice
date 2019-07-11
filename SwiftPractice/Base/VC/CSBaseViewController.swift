@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HandyJSON
 
 class CSBaseViewController: UIViewController {
     
