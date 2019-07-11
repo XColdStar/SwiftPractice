@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import HandyJSON
 
-class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
+class CSLoginViewController: CSBaseViewController , UITextFieldDelegate {
     
     lazy var closeBtn : UIButton = {
         let button = UIButton()
@@ -237,7 +237,7 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate{
             
         }
     }
-    
+
     
 }
 

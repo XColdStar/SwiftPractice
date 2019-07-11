@@ -72,6 +72,7 @@ extension CSBaseHTTPRequestManager {
         let json = JSON(result)
         let code = json["code"].int
         let msg = json["msg"].string
+        print("\(String(describing: json.rawString()))")
         
         if code == 111 {
             finishCallback(true, json, msg ?? kRequestSuccess)

@@ -7,5 +7,7 @@ pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'HandyJSON'
 pod 'SnapKit'
+pod 'IQKeyboardManagerSwift'
+pod 'RealmSwift'
 
 end  

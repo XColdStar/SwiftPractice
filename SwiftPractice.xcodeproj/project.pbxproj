@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3DB6D53FC55D743E8525A323 /* Pods_SwiftPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055CBF68A190E8F0D7387423 /* Pods_SwiftPractice.framework */; };
 		A31735D822D2DA7100EF6FF9 /* NSMutableDictionary + Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31735D722D2DA7100EF6FF9 /* NSMutableDictionary + Category.swift */; };
+		A32BCBC322D6E52D00491FD7 /* CSRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32BCBC222D6E52D00491FD7 /* CSRealmManager.swift */; };
 		A35D0E9822C3068100791066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D0E9722C3068100791066 /* AppDelegate.swift */; };
 		A35D0E9F22C3068200791066 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A35D0E9E22C3068200791066 /* Assets.xcassets */; };
 		A35D0EA222C3068200791066 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35D0EA022C3068200791066 /* LaunchScreen.storyboard */; };
@@ -18,6 +19,7 @@
 		A381092E22CB41C300FDD65E /* UIDevice+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A381092D22CB41C300FDD65E /* UIDevice+Category.swift */; };
 		A38C506522C3222300BF2839 /* CSBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C506422C3222300BF2839 /* CSBaseModel.swift */; };
 		A38C506A22C322B800BF2839 /* CSRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38C506922C322B800BF2839 /* CSRequestManager.swift */; };
+		A3C0672322D72C5A006CEE31 /* CSCacheModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C0672222D72C5A006CEE31 /* CSCacheModel.swift */; };
 		A3C4352622C6134E0064C755 /* CSLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4352522C6134E0064C755 /* CSLoginManager.swift */; };
 		A3C4352D22C61A160064C755 /* CSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C4352C22C61A160064C755 /* CSConfig.swift */; };
 		A3CE001F22CAEB5B00BC3085 /* xm_physicianVisitsRecordPlaceholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CEFF1922CAEB5A00BC3085 /* xm_physicianVisitsRecordPlaceholder@3x.png */; };
@@ -273,8 +275,6 @@
 		A3CEFF1622CA1B0F00BC3085 /* CSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CEFF1522CA1B0F00BC3085 /* CSLoginViewController.swift */; };
 		A3F6115D22C9AFC700A18751 /* CSCommonAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F6115C22C9AFC700A18751 /* CSCommonAPIManager.swift */; };
 		A3FC7E3922D45E2300DD41F6 /* CSUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC7E3622D45E2300DD41F6 /* CSUserInfoModel.swift */; };
-		A3FC7E3A22D45E2300DD41F6 /* CSUserInfoToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC7E3722D45E2300DD41F6 /* CSUserInfoToken.swift */; };
-		A3FC7E3B22D45E2300DD41F6 /* CSUserInfoCustomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC7E3822D45E2300DD41F6 /* CSUserInfoCustomer.swift */; };
 		A3FC7E4422D6C8D100DD41F6 /* CSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FC7E4322D6C8D100DD41F6 /* CSUser.swift */; };
 /* End PBXBuildFile section */
 
@@ -299,6 +299,7 @@
 		055CBF68A190E8F0D7387423 /* Pods_SwiftPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2117240CF8FB18F8B56D539F /* Pods-SwiftPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPractice.release.xcconfig"; path = "Target Support Files/Pods-SwiftPractice/Pods-SwiftPractice.release.xcconfig"; sourceTree = "<group>"; };
 		A31735D722D2DA7100EF6FF9 /* NSMutableDictionary + Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableDictionary + Category.swift"; sourceTree = "<group>"; };
+		A32BCBC222D6E52D00491FD7 /* CSRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRealmManager.swift; sourceTree = "<group>"; };
 		A35D0E9422C3068100791066 /* SwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A35D0E9722C3068100791066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A35D0E9E22C3068200791066 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -314,6 +315,7 @@
 		A381092D22CB41C300FDD65E /* UIDevice+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Category.swift"; sourceTree = "<group>"; };
 		A38C506422C3222300BF2839 /* CSBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSBaseModel.swift; sourceTree = "<group>"; };
 		A38C506922C322B800BF2839 /* CSRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRequestManager.swift; sourceTree = "<group>"; };
+		A3C0672222D72C5A006CEE31 /* CSCacheModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCacheModel.swift; sourceTree = "<group>"; };
 		A3C4352522C6134E0064C755 /* CSLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSLoginManager.swift; sourceTree = "<group>"; };
 		A3C4352C22C61A160064C755 /* CSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSConfig.swift; sourceTree = "<group>"; };
 		A3CE000022CAEB5B00BC3085 /* xm_my_xzCurrency@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xm_my_xzCurrency@3x.png"; sourceTree = "<group>"; };
@@ -569,8 +571,6 @@
 		A3CEFFFF22CAEB5B00BC3085 /* xm_my_PhysicianVisitsRecords@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xm_my_PhysicianVisitsRecords@3x.png"; sourceTree = "<group>"; };
 		A3F6115C22C9AFC700A18751 /* CSCommonAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSCommonAPIManager.swift; sourceTree = "<group>"; };
 		A3FC7E3622D45E2300DD41F6 /* CSUserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSUserInfoModel.swift; sourceTree = "<group>"; };
-		A3FC7E3722D45E2300DD41F6 /* CSUserInfoToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSUserInfoToken.swift; sourceTree = "<group>"; };
-		A3FC7E3822D45E2300DD41F6 /* CSUserInfoCustomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSUserInfoCustomer.swift; sourceTree = "<group>"; };
 		A3FC7E4322D6C8D100DD41F6 /* CSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSUser.swift; sourceTree = "<group>"; };
 		B05D9FDBBE247FFB6F42DC13 /* Pods-SwiftPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPractice.debug.xcconfig"; path = "Target Support Files/Pods-SwiftPractice/Pods-SwiftPractice.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -608,6 +608,14 @@
 				2117240CF8FB18F8B56D539F /* Pods-SwiftPractice.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A32BCBC122D6E4E800491FD7 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				A32BCBC222D6E52D00491FD7 /* CSRealmManager.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		A35D0E8B22C3068100791066 = {
@@ -681,8 +689,6 @@
 			isa = PBXGroup;
 			children = (
 				A3FC7E3622D45E2300DD41F6 /* CSUserInfoModel.swift */,
-				A3FC7E3722D45E2300DD41F6 /* CSUserInfoToken.swift */,
-				A3FC7E3822D45E2300DD41F6 /* CSUserInfoCustomer.swift */,
 				A3FC7E4322D6C8D100DD41F6 /* CSUser.swift */,
 			);
 			path = Model;
@@ -710,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				A38C506422C3222300BF2839 /* CSBaseModel.swift */,
+				A3C0672222D72C5A006CEE31 /* CSCacheModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -722,12 +729,12 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		A3C4352422C613090064C755 /* RequestManager */ = {
+		A3C4352422C613090064C755 /* Request */ = {
 			isa = PBXGroup;
 			children = (
 				A38C506922C322B800BF2839 /* CSRequestManager.swift */,
 			);
-			path = RequestManager;
+			path = Request;
 			sourceTree = "<group>";
 		};
 		A3C4352722C613FC0064C755 /* Config */ = {
@@ -1221,8 +1228,9 @@
 		A3F6115A22C9AF9200A18751 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				A32BCBC122D6E4E800491FD7 /* Realm */,
 				A3CE011122CAEE1200BC3085 /* Style */,
-				A3C4352422C613090064C755 /* RequestManager */,
+				A3C4352422C613090064C755 /* Request */,
 				A3F6115B22C9AF9C00A18751 /* CommonAPIManager */,
 			);
 			path = Common;
@@ -1660,17 +1668,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3C0672322D72C5A006CEE31 /* CSCacheModel.swift in Sources */,
 				A381092E22CB41C300FDD65E /* UIDevice+Category.swift in Sources */,
 				A3CE011322CAEE5D00BC3085 /* CSStyleManager.swift in Sources */,
-				A3FC7E3B22D45E2300DD41F6 /* CSUserInfoCustomer.swift in Sources */,
 				A31735D822D2DA7100EF6FF9 /* NSMutableDictionary + Category.swift in Sources */,
 				A3FC7E4422D6C8D100DD41F6 /* CSUser.swift in Sources */,
 				A3CEFE5F22C9E57400BC3085 /* CSBaseViewController.swift in Sources */,
 				A3CEFEB322C9E8FA00BC3085 /* DispatchQueue+Category.swift in Sources */,
 				A35D0EC722C30EF500791066 /* CSBaseHTTPRequestManager.swift in Sources */,
-				A3FC7E3A22D45E2300DD41F6 /* CSUserInfoToken.swift in Sources */,
 				A38C506A22C322B800BF2839 /* CSRequestManager.swift in Sources */,
 				A3CEFE6422C9E5A900BC3085 /* CSMineViewController.swift in Sources */,
+				A32BCBC322D6E52D00491FD7 /* CSRealmManager.swift in Sources */,
 				A3CEFEB522C9EBBE00BC3085 /* CSBaseNavigationController.swift in Sources */,
 				A3CEFE5B22C9E52300BC3085 /* CSRootVCManager.swift in Sources */,
 				A3F6115D22C9AFC700A18751 /* CSCommonAPIManager.swift in Sources */,

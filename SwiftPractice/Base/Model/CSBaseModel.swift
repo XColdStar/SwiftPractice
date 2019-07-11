@@ -9,7 +9,8 @@
 import UIKit
 import HandyJSON
 
-class CSBaseModel: HandyJSON {
+
+class CSBaseModel: HandyJSON{
     
     required init() {
         

@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
 //        self.window?.rootViewController = CSRootVCManager.defaultRootVC()
         self.window?.rootViewController = CSLoginViewController()
+        CSRealmManager.realmConfig(version: 0)
+        let results = CSRealmManager.query(modelClass: CSCacheModel.self)
+        print(results)
         return true
     }
 

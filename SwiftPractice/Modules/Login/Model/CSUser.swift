@@ -24,13 +24,43 @@ class CSUser: CSBaseModel {
         return user!
     }
     
+}
+
+
+extension CSUser {
     
+    //MARK: ### 更新用户信息 ###
     static func updateUserInfo(userInfo: CSUserInfoModel) ->() {
         
         CSUser.share().customer = userInfo.customer
-        CSUser.share().tokenInfo = userInfo.tokenInfo
-        CSUser.share().token = userInfo.tokenInfo.token
+        CSUser.share().tokenInfo = userInfo.token
+        CSUser.share().token = userInfo.token.token
+        CSUser.saveUserInfo()
+        
+    }
+    
+    //MARK: ### 更新token ###
+    static func updateToken(token: String) ->() {
+    
+        CSUser.share().token = token
+        CSUser.saveUserInfo()
+        
+    }
+    
+    //MARK: ### 保存用户信息 ###
+    static func saveUserInfo() {
+        
+        let cacheData = CSUser.share().toJSONString()?.data(using: String.Encoding.utf8)
+        let cacheModel = CSCacheModel()
+        cacheModel.cacheData = cacheData
+        CSRealmManager.save(model: cacheModel)
+        
+        let cacheString = String(data: cacheData ?? Data(), encoding: String.Encoding.utf8)
+        print("\(String(describing: cacheString))")
         
     }
     
 }
+
+
+
