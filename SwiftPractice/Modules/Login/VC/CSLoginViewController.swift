@@ -157,6 +157,10 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self, name: UITextField.textDidChangeNotification, object: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
 }
 
 //MARK: ### actions ###

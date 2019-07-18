@@ -13,7 +13,11 @@ class CSUser: CSBaseModel {
     var customer: CSUserInfoCustomer?
     var tokenInfo: CSUserInfoToken?
     var token = ""
-    var isLogin = false
+    var isLogin: Bool {
+        get {
+            return CSUser.share().token.count != 0
+        }
+    }
     
     static var user : CSUser? = nil
     static let userOnceToken = NSUUID().uuidString
@@ -31,7 +35,7 @@ extension CSUser {
     
     //MARK: ### 更新用户信息 ###
     static func updateUserInfo(userInfo: CSUserInfoModel) ->() {
-        
+    
         CSUser.share().customer = userInfo.customer
         CSUser.share().tokenInfo = userInfo.token
         CSUser.share().token = userInfo.token.token

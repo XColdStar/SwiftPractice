@@ -12,7 +12,7 @@ class CSRootVCManager: NSObject {
 
     static var rootVC : UITabBarController? = nil
     
-    class func defaultRootVC() -> (UITabBarController) {
+    static func defaultRootVC() -> (UITabBarController) {
         
         let onceToken = NSUUID().uuidString
         print("defaultRootVCToken：\(onceToken)")
