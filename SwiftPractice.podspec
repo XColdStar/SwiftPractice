@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                       测试
                       DESC
 
-  spec.homepage     = "https://EXAMPLE/SwiftPractice"
+  spec.homepage     = "https://github.com/jiyihanxing"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -81,6 +81,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.source       = { :git => "https://github.com/jiyihanxing/SwiftPractice.git", :tag => "#{spec.version}" }
+
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
