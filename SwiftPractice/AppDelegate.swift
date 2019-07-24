@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
-//        self.window?.rootViewController = CSRootVCManager.defaultRootVC()
+        self.window?.rootViewController = CSRootVCManager.defaultRootVC()
 //        CSRealmManager.realmConfig(version: 0)
 //        let results = CSRealmManager.query(modelClass: CSCacheModel.self)
 //        print(results)

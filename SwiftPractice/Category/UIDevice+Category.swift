@@ -43,5 +43,9 @@ extension UIDevice {
         return Bundle.main.infoDictionary? ["CFBundleDisplayName"]
     }() ?? "name"
     
+
+    static let mainWindow : UIWindow = {
+        return UIApplication.shared.keyWindow!
+    }()
     
 }

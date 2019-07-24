@@ -9,5 +9,6 @@ pod 'HandyJSON'
 pod 'SnapKit'
 pod 'IQKeyboardManagerSwift'
 pod 'RealmSwift'
+pod 'Kingfisher'
 
 end  

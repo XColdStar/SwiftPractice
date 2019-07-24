@@ -132,11 +132,10 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configUI()
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChangeNotification), name: UITextField.textDidChangeNotification, object: nil)
     }
 
-    fileprivate func configUI() {
+    override func configUI() {
         self.view.addSubview(self.closeBtn)
         self.view.addSubview(self.fastLoginLabel)
         self.view.addSubview(self.line)
@@ -168,7 +167,9 @@ class CSLoginViewController: CSBaseViewController , UITextFieldDelegate {
     
     fileprivate func clickedClose(button : UIButton) {
         print("关闭")
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {[weak self] in
+            self?.stopTimer()
+        })
     }
     
     fileprivate func sendCode(button : UIButton) -> () {
