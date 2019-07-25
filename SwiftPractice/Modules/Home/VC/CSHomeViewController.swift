@@ -29,7 +29,11 @@ class CSHomeViewController: CSBaseViewController {
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
         layout.headerReferenceSize = CGSize(width: UIDevice.width, height: self.headerView.frame.height+20)
         
-        let collection = UICollectionView(frame: CGRect(x: 0, y: self.navBar.frame.height, width: UIDevice.width, height: UIDevice.height-self.navBar.frame.height-49-34), collectionViewLayout: layout)
+        var height = UIDevice.height-self.navBar.frame.height-49
+        if UIDevice.isPhoneXSeries {
+            height += 34
+        }
+        let collection = UICollectionView(frame: CGRect(x: 0, y: self.navBar.frame.height, width: UIDevice.width, height: height), collectionViewLayout: layout)
         collection.backgroundColor = CSStyleManager().colorF5
         collection.delegate = self
         collection.dataSource = self

@@ -73,10 +73,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满99可领赠品" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iev-49-ZZf">
-                        <rect key="frame" x="146" y="114" width="55" height="20"/>
+                        <rect key="frame" x="146" y="118" width="55" height="16"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="r1O-1F-z5L"/>
+                            <constraint firstAttribute="height" constant="16" id="r1O-1F-z5L"/>
                             <constraint firstAttribute="width" constant="55" id="xrB-du-0iJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
@@ -110,11 +110,11 @@
                         <state key="normal" image="XmCommonshoppingCart"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="满199可减10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl3-1D-bXf">
-                        <rect key="frame" x="211" y="114" width="55" height="20"/>
+                        <rect key="frame" x="211" y="118" width="55" height="16"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="W6m-vF-1Jd"/>
-                            <constraint firstAttribute="height" constant="20" id="z0L-C9-Duq"/>
+                            <constraint firstAttribute="height" constant="16" id="z0L-C9-Duq"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" red="0.88235294119999996" green="0.31764705879999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>

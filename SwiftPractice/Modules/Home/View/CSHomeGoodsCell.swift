@@ -16,10 +16,10 @@ class CSHomeGoodsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        redLable1.layer.borderWidth = 1;
+        redLable1.layer.borderWidth = 0.5;
         redLable1.layer.borderColor = CSStyleManager().redColor.cgColor
         
-        redLabel2.layer.borderWidth = 1;
+        redLabel2.layer.borderWidth = 0.5;
         redLabel2.layer.borderColor = CSStyleManager().redColor.cgColor
     }
 
