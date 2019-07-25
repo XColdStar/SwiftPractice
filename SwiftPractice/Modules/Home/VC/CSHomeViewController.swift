@@ -26,12 +26,21 @@ class CSHomeViewController: CSBaseViewController {
         return view
     }()
     
+    lazy var bannerView2: CSBannerView = {
+        let banner = CSBannerView(frame: CGRect(x: 16, y:classifyView.frame.origin.y+classifyView.frame.size.height+10 , width: UIDevice.width-32, height: 70))
+        banner.layer.cornerRadius = 35
+        banner.clipsToBounds = true
+        banner.pageControl.isHidden = true
+        return banner
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = CSStyleManager().colorF5
         self.view.addSubview(navBar)
         self.view.addSubview(bannerView)
         self.view.addSubview(classifyView)
+        self.view.addSubview(bannerView2)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +54,7 @@ class CSHomeViewController: CSBaseViewController {
         "http://pic18.nipic.com/20111129/4155754_234055006000_2.jpg",
         "http://pic5.nipic.com/20100120/3641224_180653657501_2.jpg"]
         bannerView.data = pictures
+        bannerView2.data = pictures
     }
 
 }

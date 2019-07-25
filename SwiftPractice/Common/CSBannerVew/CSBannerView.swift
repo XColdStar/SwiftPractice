@@ -16,6 +16,12 @@ class CSBannerView: CSBaseView {
     fileprivate var dataArray: Array<String>?
     fileprivate var timer: Timer? = nil
     
+    var width: CGFloat = UIDevice.width {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
@@ -62,7 +68,7 @@ class CSBannerView: CSBaseView {
                 pageControl.currentPage = 0
 
                 DispatchQueue.main.async {
-                    self.collectionView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+                    self.collectionView.setContentOffset(CGPoint(x: self.width, y: 0), animated: false)
                     self.startTimer()
                 }
             }
@@ -70,8 +76,10 @@ class CSBannerView: CSBaseView {
     }
 
     override func configUI() {
+//        setShadow()
         addSubview(collectionView)
         addSubview(pageControl)
+        self.width = self.frame.width
     }
     
     override func configConstraint() {
@@ -85,6 +93,14 @@ class CSBannerView: CSBaseView {
             make.height.equalTo(30)
         }
     }
+    
+//    func setShadow() {
+//        layer.shadowColor = UIColor.white.cgColor
+//        layer.masksToBounds = false
+//        layer.shadowRadius = 3
+//        layer.shadowOffset = CGSize(width: 0, height: 0)
+//        layer.shadowOpacity = 0.9
+//    }
     
 }
 
@@ -104,12 +120,12 @@ extension CSBannerView {
     
     @objc fileprivate func startScroll() {
         var offsetX = collectionView.contentOffset.x
-        offsetX += UIDevice.width
+        offsetX += self.width
         collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
         
-        if Int(offsetX) >= ((dataArray!.count-1) * Int(UIDevice.width) ) {
+        if Int(offsetX) >= ((dataArray!.count-1) * Int(self.width) ) {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25)  {
-                self.collectionView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+                self.collectionView.setContentOffset(CGPoint(x: self.width, y: 0), animated: false)
             }
         }
         
@@ -130,7 +146,7 @@ extension CSBannerView {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
-        let currentIndex = Int(offsetX/UIDevice.width)
+        let currentIndex = Int(offsetX/self.width)
         if currentIndex == 0 {
             pageControl.currentPage = dataArray!.count - 2
         } else if currentIndex == dataArray!.count-1 {
@@ -142,11 +158,11 @@ extension CSBannerView {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
-        let currentIndex = Int(offsetX/UIDevice.width)
+        let currentIndex = Int(offsetX/self.width)
         if currentIndex == 0 {
-            scrollView.setContentOffset(CGPoint(x: Int(UIDevice.width) * (dataArray!.count-2), y: 0), animated: false)
+            scrollView.setContentOffset(CGPoint(x: Int(self.width) * (dataArray!.count-2), y: 0), animated: false)
         } else if currentIndex == dataArray!.count-1 {
-            scrollView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+            scrollView.setContentOffset(CGPoint(x: self.width, y: 0), animated: false)
         } else {
 
         }
@@ -157,7 +173,7 @@ extension CSBannerView {
 extension CSBannerView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIDevice.width, height: UIDevice.width/ratio)
+        return CGSize(width: self.width, height: UIDevice.width/ratio)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
