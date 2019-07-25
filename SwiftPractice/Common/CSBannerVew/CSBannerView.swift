@@ -14,6 +14,7 @@ let ratio = CGFloat(375/167.0)
 class CSBannerView: CSBaseView {
 
     fileprivate var dataArray: Array<String>?
+    fileprivate var timer: Timer? = nil
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,23 +34,120 @@ class CSBannerView: CSBaseView {
         return collection
     }()
     
+    lazy var pageControl: UIPageControl = {
+        let page = UIPageControl()
+        page.pageIndicatorTintColor = CSStyleManager().colorF5
+        page.currentPageIndicatorTintColor = CSStyleManager().mainColor
+        page.currentPage = 0;
+        page.backgroundColor = UIColor.clear
+        return page
+    }()
+    
     override var data: Any? {
         didSet {
             print(data ?? "空值")
             if let array = data as? Array<String> {
-                dataArray = array
+
+                guard array.count != 0 else {return}
+                dataArray = Array()
+                dataArray?.append(array.last!)
+                dataArray?.append(contentsOf: array)
+                dataArray?.append(array.first!)
+                
+                guard dataArray?.count != 0 else {return}
                 collectionView.reloadData()
+                
+                pageControl.numberOfPages = dataArray!.count - 2
+                pageControl.currentPage = 0
+
+                DispatchQueue.main.async {
+                    self.collectionView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+                    self.startTimer()
+                }
             }
         }
     }
 
     override func configUI() {
         addSubview(collectionView)
+        addSubview(pageControl)
     }
     
     override func configConstraint() {
         collectionView.snp.makeConstraints { (make) in
             make.top.left.bottom.right.equalToSuperview()
+        }
+        
+        pageControl.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(0)
+            make.left.right.equalToSuperview()
+            make.height.equalTo(30)
+        }
+    }
+    
+}
+
+//MARK: ### 定时器处理 ###
+extension CSBannerView {
+    
+    fileprivate func startTimer() {
+        destoryTimer()
+        timer = Timer(timeInterval: 3, target: self, selector: #selector(startScroll), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .common)
+    }
+    
+    fileprivate func destoryTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc fileprivate func startScroll() {
+        var offsetX = collectionView.contentOffset.x
+        offsetX += UIDevice.width
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+        
+        if Int(offsetX) >= ((dataArray!.count-1) * Int(UIDevice.width) ) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.25)  {
+                self.collectionView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+            }
+        }
+        
+    }
+    
+}
+
+//MARK: ### 处理无线轮播 ###
+extension CSBannerView {
+
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        destoryTimer()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        startTimer()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetX = scrollView.contentOffset.x
+        let currentIndex = Int(offsetX/UIDevice.width)
+        if currentIndex == 0 {
+            pageControl.currentPage = dataArray!.count - 2
+        } else if currentIndex == dataArray!.count-1 {
+            pageControl.currentPage = 0
+        } else {
+            pageControl.currentPage = currentIndex-1
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offsetX = scrollView.contentOffset.x
+        let currentIndex = Int(offsetX/UIDevice.width)
+        if currentIndex == 0 {
+            scrollView.setContentOffset(CGPoint(x: Int(UIDevice.width) * (dataArray!.count-2), y: 0), animated: false)
+        } else if currentIndex == dataArray!.count-1 {
+            scrollView.setContentOffset(CGPoint(x: UIDevice.width, y: 0), animated: false)
+        } else {
+
         }
     }
     
