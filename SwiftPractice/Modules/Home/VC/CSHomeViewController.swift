@@ -34,6 +34,12 @@ class CSHomeViewController: CSBaseViewController {
         return banner
     }()
     
+    lazy var activityView: CSActivityView = {
+        let view = Bundle.main.loadNibNamed("CSActivityView", owner: self, options: nil)?.first as! CSActivityView
+        view.frame = CGRect(x: 0, y: 300 , width: UIDevice.width, height: 290)
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = CSStyleManager().colorF5
@@ -41,6 +47,7 @@ class CSHomeViewController: CSBaseViewController {
         self.view.addSubview(bannerView)
         self.view.addSubview(classifyView)
         self.view.addSubview(bannerView2)
+        self.view.addSubview(activityView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
