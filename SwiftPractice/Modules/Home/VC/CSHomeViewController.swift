@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let cellIdentifier = "UICollectionViewCell"
+private let cellIdentifier = "CSHomeGoodsCell"
 
 class CSHomeViewController: CSBaseViewController {
     
@@ -24,10 +24,10 @@ class CSHomeViewController: CSBaseViewController {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        layout.headerReferenceSize = CGSize(width: UIDevice.width, height: self.headerView.frame.height)
+        layout.headerReferenceSize = CGSize(width: UIDevice.width, height: self.headerView.frame.height+20)
         
         let collection = UICollectionView(frame: CGRect(x: 0, y: self.navBar.frame.height, width: UIDevice.width, height: UIDevice.height-self.navBar.frame.height-49-34), collectionViewLayout: layout)
         collection.backgroundColor = CSStyleManager().colorF5
@@ -36,9 +36,9 @@ class CSHomeViewController: CSBaseViewController {
         collection.isPagingEnabled = false
         collection.showsVerticalScrollIndicator = false
         collection.showsHorizontalScrollIndicator = false
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collection.register(UINib(nibName: "CSHomeGoodsCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         collection.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        collection.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
+//        collection.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         return collection
     }()
     
@@ -98,7 +98,7 @@ extension CSHomeViewController {
 extension CSHomeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIDevice.width, height: 100)
+        return CGSize(width: UIDevice.width, height: 145)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -106,7 +106,7 @@ extension CSHomeViewController: UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CSHomeGoodsCell
         return cell
     }
     
