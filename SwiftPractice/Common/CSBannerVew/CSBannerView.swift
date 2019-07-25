@@ -23,6 +23,7 @@ class CSBannerView: CSBaseView {
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         
         let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: UIDevice.width, height: 0), collectionViewLayout: layout)
+        collection.backgroundColor = UIColor.white
         collection.delegate = self
         collection.dataSource = self
         collection.isPagingEnabled = true

@@ -17,6 +17,10 @@
 		A33FADFB22E88A0100DBCF7A /* CSBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FADFA22E88A0100DBCF7A /* CSBannerCell.swift */; };
 		A33FADFD22E88DD100DBCF7A /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FADFC22E88DD100DBCF7A /* UIImageView+Extension.swift */; };
 		A33FADFF22E89B6E00DBCF7A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FADFE22E89B6E00DBCF7A /* Array+Extension.swift */; };
+		A33FAE0122E96B6C00DBCF7A /* CSGoodsClassifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FAE0022E96B6C00DBCF7A /* CSGoodsClassifyView.swift */; };
+		A33FAE0322E96EB400DBCF7A /* CSGoodsClassifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FAE0222E96EB400DBCF7A /* CSGoodsClassifyCell.swift */; };
+		A33FAE0622E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33FAE0422E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.swift */; };
+		A33FAE0722E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A33FAE0522E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.xib */; };
 		A35D0E9822C3068100791066 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35D0E9722C3068100791066 /* AppDelegate.swift */; };
 		A35D0E9F22C3068200791066 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A35D0E9E22C3068200791066 /* Assets.xcassets */; };
 		A35D0EA222C3068200791066 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35D0EA022C3068200791066 /* LaunchScreen.storyboard */; };
@@ -72,6 +76,10 @@
 		A33FADFA22E88A0100DBCF7A /* CSBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSBannerCell.swift; sourceTree = "<group>"; };
 		A33FADFC22E88DD100DBCF7A /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A33FADFE22E89B6E00DBCF7A /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A33FAE0022E96B6C00DBCF7A /* CSGoodsClassifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGoodsClassifyView.swift; sourceTree = "<group>"; };
+		A33FAE0222E96EB400DBCF7A /* CSGoodsClassifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGoodsClassifyCell.swift; sourceTree = "<group>"; };
+		A33FAE0422E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGoodsClassifyChidrenCell.swift; sourceTree = "<group>"; };
+		A33FAE0522E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CSGoodsClassifyChidrenCell.xib; sourceTree = "<group>"; };
 		A35D0E9422C3068100791066 /* SwiftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A35D0E9722C3068100791066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A35D0E9E22C3068200791066 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +160,10 @@
 			isa = PBXGroup;
 			children = (
 				A33FADEE22E87A3A00DBCF7A /* CSHomeCustomNavigationBar.swift */,
+				A33FAE0022E96B6C00DBCF7A /* CSGoodsClassifyView.swift */,
+				A33FAE0222E96EB400DBCF7A /* CSGoodsClassifyCell.swift */,
+				A33FAE0422E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.swift */,
+				A33FAE0522E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -510,6 +522,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A35D0EA222C3068200791066 /* LaunchScreen.storyboard in Resources */,
+				A33FAE0722E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.xib in Resources */,
 				A35D0E9F22C3068200791066 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,11 +600,13 @@
 				A3FC7E4422D6C8D100DD41F6 /* CSUser.swift in Sources */,
 				A3CEFE5F22C9E57400BC3085 /* CSBaseViewController.swift in Sources */,
 				A3CEFEB322C9E8FA00BC3085 /* DispatchQueue+Category.swift in Sources */,
+				A33FAE0322E96EB400DBCF7A /* CSGoodsClassifyCell.swift in Sources */,
 				A35D0EC722C30EF500791066 /* CSBaseHTTPRequestManager.swift in Sources */,
 				A38C506A22C322B800BF2839 /* CSRequestManager.swift in Sources */,
 				A3CEFE6422C9E5A900BC3085 /* CSMineViewController.swift in Sources */,
 				A32BCBC322D6E52D00491FD7 /* CSRealmManager.swift in Sources */,
 				A3CEFEB522C9EBBE00BC3085 /* CSBaseNavigationController.swift in Sources */,
+				A33FAE0622E96EE000DBCF7A /* CSGoodsClassifyChidrenCell.swift in Sources */,
 				A3CEFE5B22C9E52300BC3085 /* CSRootVCManager.swift in Sources */,
 				A33FADFD22E88DD100DBCF7A /* UIImageView+Extension.swift in Sources */,
 				A3F6115D22C9AFC700A18751 /* CSCommonAPIManager.swift in Sources */,
@@ -600,6 +615,7 @@
 				A3CE011522CAEEED00BC3085 /* UIColor+Category.swift in Sources */,
 				A33FADF522E8888100DBCF7A /* CSBannerView.swift in Sources */,
 				A33FADEF22E87A3A00DBCF7A /* CSHomeCustomNavigationBar.swift in Sources */,
+				A33FAE0122E96B6C00DBCF7A /* CSGoodsClassifyView.swift in Sources */,
 				A3CEFF1622CA1B0F00BC3085 /* CSLoginViewController.swift in Sources */,
 				A3FC7E3922D45E2300DD41F6 /* CSUserInfoModel.swift in Sources */,
 				A3C4352622C6134E0064C755 /* CSLoginManager.swift in Sources */,

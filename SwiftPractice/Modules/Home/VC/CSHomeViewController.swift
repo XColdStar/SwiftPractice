@@ -20,15 +20,24 @@ class CSHomeViewController: CSBaseViewController {
         return banner
     }()
     
+    
+    lazy var classifyView: CSGoodsClassifyView = {
+        let view = CSGoodsClassifyView(frame: CGRect(x: 16, y: UIDevice.statusBarHeight+120+UIDevice.width/ratio + 10, width: UIDevice.width-32, height: 240))
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = CSStyleManager().colorF5
+        self.view.addSubview(navBar)
+        self.view.addSubview(bannerView)
+        self.view.addSubview(classifyView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        self.view.addSubview(navBar)
-        self.view.addSubview(bannerView)
+        
         let pictures = ["http://b-ssl.duitang.com/uploads/item/201806/20/20180620171603_JsPzu.jpeg",
         "http://b.zol-img.com.cn/soft/6/571/cepyVKtIjudo6.jpg",
         "http://pic.rmb.bdstatic.com/f54083119edfb83c4cfe9ce2eeebc076.jpeg",
